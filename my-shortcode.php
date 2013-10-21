@@ -3,19 +3,6 @@
  * Additional Shortcodes
  */
 //******************************************************************************
-// Google Charts
-//******************************************************************************
-function sc_gchart($atts) {
-	extract(shortcode_atts(array(
-			'id' => 'gchart_div',
-			'style' => '',
-	), $atts));
-	return '<div id="'.$id.'" style="'.$style.'"></div>';
-}
-add_shortcode('gchart', 'sc_gchart');
-
-
-//******************************************************************************
 // Timeliner
 //******************************************************************************
 function sc_timeline($atts, $content = null) {
@@ -25,7 +12,7 @@ function sc_timeline($atts, $content = null) {
 	return '
 		<div id="timelineContainer" style="'.$style.'">
 			<div class="timelineToggle">
-				<small><a class="expandAll expandAllclosed">すべて展開する</a></small>
+				<small><a class="expandAll expandAllclosed"></a></small>
 			</div>
 			<br class="clear" />'.do_shortcode($content).'<br class="clear" />
 		</div>
@@ -123,7 +110,7 @@ function sc_timelineGallery($atts) {
 		}
 		return '
 			<div class="gallery default">
-				<div class="gallery-item">
+				<div class="gallery-icon">
 					<a href="'.$url.'" rel="'.$rel.'">
 						<img title="'.$title.'" src="'.$url.'" alt="" />
 					</a>
@@ -174,19 +161,6 @@ add_shortcode('timelineInfoList', 'sc_timelineInfoList');
 
 
 //******************************************************************************
-// jqFloating Clouds
-//******************************************************************************
-function sc_jqfloat_clouds($atts) {
-	return '<div id="jqfloat-cloud1" class="jqfloat-cloud"></div>
-			<div id="jqfloat-cloud2" class="jqfloat-cloud"></div>
-			<div id="jqfloat-cloud3" class="jqfloat-cloud"></div>
-			<div id="jqfloat-cloud4" class="jqfloat-cloud"></div>
-			<div id="jqfloat-sun"></div>';
-}
-add_shortcode('jqfloat_clouds', 'sc_jqfloat_clouds');
-
-
-//******************************************************************************
 // Cloud with content
 //******************************************************************************
 function sc_moving_cloud($atts, $content = null) {
@@ -213,22 +187,80 @@ add_shortcode('moving_cloud', 'sc_moving_cloud');
 
 
 //******************************************************************************
+// WikiUp Tooltip
+//******************************************************************************
+function sc_wikiup($atts, $content = null) {
+	extract(shortcode_atts(array(
+			'id' => '',
+			'style' => '',
+			'wiki' => '',
+			'lang' => 'ja',
+	), $atts));
+	// idを追加
+	$dataid = '';
+	if ($id != '') {
+		$dataid = ' id="'.$id.'"';
+	}
+	// styleを追加
+	$datastyle = '';
+	if ($style != '') {
+		$datastyle = ' style="'.$style.'"';
+	}
+	$ret  = '';
+	$ret .= '<data';
+	$ret .= $dataid;
+	$ret .= $datastyle;
+	$ret .= ' data-wiki="'.$wiki.'"';
+	$ret .= ' data-lang="'.$lang.'">';
+	$ret .= do_shortcode($content);
+	$ret .= '</data>';
+	return $ret;
+}
+add_shortcode('wikiup', 'sc_wikiup');
+
+
+//******************************************************************************
+// jqFloating Clouds
+//******************************************************************************
+function sc_jqfloat_sky($atts, $content = null) {
+	return '<div id="jqfloat-sky">'.do_shortcode($content).'</div>';
+}
+add_shortcode('jqfloat_sky', 'sc_jqfloat_sky');
+
+
+function sc_jqfloat_holder($atts, $content = null) {
+	return '<div id="jqfloat-holder" style="padding: 0;">'.do_shortcode($content).'</div>';
+}
+add_shortcode('jqfloat_holder', 'sc_jqfloat_holder');
+
+
+function sc_jqfloat_clouds($atts) {
+	return '<div id="jqfloat-cloud1" class="jqfloat-cloud"></div>
+			<div id="jqfloat-cloud2" class="jqfloat-cloud"></div>
+			<div id="jqfloat-cloud3" class="jqfloat-cloud"></div>
+			<div id="jqfloat-cloud4" class="jqfloat-cloud"></div>
+			<div id="jqfloat-sun"></div>';
+}
+add_shortcode('jqfloat_clouds', 'sc_jqfloat_clouds');
+
+
+//******************************************************************************
 // Dancing Erika Style
 //******************************************************************************
 function sc_erika_style($atts) {
 	extract(shortcode_atts(array(
 			'background' => 'rgba(192, 208, 240, .6)',
-			'button' => '',
+			'button' => 'false',
 			'cap' => 'ダンスやめる？',
+			'id' => 'erika-style',
 	), $atts));
+	$tag = '';
 	if ($button == 'true') {
-		$tag = '<a class="erika-trigger" href="#">'.$cap.'</a><div>　</div>';
-	} else {
-		$tag = '';
+		$tag = '<a class="erika-trigger" href="#'.$id.'">'.$cap.'</a><div>　</div>';
 	}
 	return '<div id="erika-style" style="background: '.$background.';">
 			<div id="erika-csscanvas">
-				<div id="erika-corebody"><!-- 基準座標 -->
+				<div id="erika-corebody">
 					<div id="erika-waist">
 						<div id="erika-waist_r1"></div>
 						<div id="erika-waist_r2"></div>

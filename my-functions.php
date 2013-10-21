@@ -27,8 +27,6 @@ function ad_custom_head() {
 			<meta http-equiv="X-Content-Type-Options" content="nosniff">
 			<meta http-equiv="X-XSS-Protection" content="1;mode=block">
 		<![endif]-->
-		<link type="text/css" href="'.get_bloginfo('url').'/wp-content/css-custom/user-custom.css" rel="stylesheet" media="all" />
-		<script type="text/javascript" src="'.get_bloginfo('url').'/wp-content/js-custom/user-plugin.js"></script>
 		<!--[if lt IE 7]>
 			<script type="text/javascript" src="'.get_bloginfo('url').'/wp-content/js-custom/IE7.js"></script>
 			<script type="text/javascript" src="'.get_bloginfo('url').'/wp-content/js-custom/ie7-squish.js"></script>

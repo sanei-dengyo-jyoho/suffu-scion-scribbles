@@ -5,13 +5,6 @@
 	75% { left: 3px; }
 	100% { left: 0; }
 }
-@-khtml-keyframes shakey {
-	0% { left: -3px; }
-	25% { left: 3px; }
-	50% { left: -3px; }
-	75% { left: 3px; }
-	100% { left: 0; }
-}
 @-moz-keyframes shakey {
 	0% { left: -3px; }
 	25% { left: 3px; }
@@ -44,10 +37,6 @@
 @-webkit-keyframes glow {
 	0% {-webkit-box-shadow: 0 0 5px #F6AC3D, inset 1px 1px 2px 2px rgba(143,143,143,.2);}
 	100% {-webkit-box-shadow: 0 0 15px #F6AC3D, inset 1px 1px 2px 2px rgba(143,143,143,.2);}
-}
-@-khtml-keyframes glow {
-	0% {-khtml-box-shadow: 0 0 5px #F6AC3D, inset 1px 1px 2px 2px rgba(143,143,143,.2);}
-	100% {-khtml-box-shadow: 0 0 15px #F6AC3D, inset 1px 1px 2px 2px rgba(143,143,143,.2);}
 }
 @-moz-keyframes glow {
 	0% {-moz-box-shadow: 0 0 5px #F6AC3D, inset 1px 1px 2px 2px rgba(143,143,143,.2);}
@@ -85,21 +74,6 @@ body {
       hsla(5, 53%, 63%, 0) 110px, hsla(5, 53%, 63%, 0) 120px, hsla(197, 62%, 11%, .5) 120px, hsla(197, 62%, 11%, .5) 140px       
       ),
 		-webkit-repeating-linear-gradient(135deg, transparent 5px, hsla(197, 62%, 11%, .5) 5px, hsla(197, 62%, 11%, .5) 10px, 
-      hsla(5, 53%, 63%, 0) 10px, hsla(5, 53%, 63%, 0) 35px, hsla(5, 53%, 63%, .5) 35px, hsla(5, 53%, 63%, .5) 40px,
-      hsla(197, 62%, 11%, .5) 40px, hsla(197, 62%, 11%, .5) 50px, hsla(197, 62%, 11%, 0) 50px, hsla(197, 62%, 11%, 0) 60px,                
-      hsla(5, 53%, 63%, .5) 60px, hsla(5, 53%, 63%, .5) 70px, hsla(35, 91%, 65%, .5) 70px, hsla(35, 91%, 65%, .5) 80px,
-      hsla(35, 91%, 65%, 0) 80px, hsla(35, 91%, 65%, 0) 90px, hsla(5, 53%, 63%, .5) 90px, hsla(5, 53%, 63%, .5) 110px,
-      hsla(5, 53%, 63%, 0) 110px, hsla(5, 53%, 63%, 0) 140px, hsla(197, 62%, 11%, .5) 140px, hsla(197, 62%, 11%, .5) 160px       
-  ) !important;
-	background-image:
-		-khtml-repeating-linear-gradient(45deg, transparent 5px, hsla(197, 62%, 11%, .5) 5px, hsla(197, 62%, 11%, .5) 10px,                  
-      hsla(5, 53%, 63%, 0) 10px, hsla(5, 53%, 63%, 0) 35px, hsla(5, 53%, 63%, .5) 35px, hsla(5, 53%, 63%, .5) 40px,
-      hsla(197, 62%, 11%, .5) 40px, hsla(197, 62%, 11%, .5) 50px, hsla(197, 62%, 11%, 0) 50px, hsla(197, 62%, 11%, 0) 60px,                
-      hsla(5, 53%, 63%, .5) 60px, hsla(5, 53%, 63%, .5) 70px, hsla(35, 91%, 65%, .5) 70px, hsla(35, 91%, 65%, .5) 80px,
-      hsla(35, 91%, 65%, 0) 80px, hsla(35, 91%, 65%, 0) 90px, hsla(5, 53%, 63%, .5) 90px, hsla(5, 53%, 63%, .5) 110px,
-      hsla(5, 53%, 63%, 0) 110px, hsla(5, 53%, 63%, 0) 120px, hsla(197, 62%, 11%, .5) 120px, hsla(197, 62%, 11%, .5) 140px       
-      ),
-		-khtml-repeating-linear-gradient(135deg, transparent 5px, hsla(197, 62%, 11%, .5) 5px, hsla(197, 62%, 11%, .5) 10px, 
       hsla(5, 53%, 63%, 0) 10px, hsla(5, 53%, 63%, 0) 35px, hsla(5, 53%, 63%, .5) 35px, hsla(5, 53%, 63%, .5) 40px,
       hsla(197, 62%, 11%, .5) 40px, hsla(197, 62%, 11%, .5) 50px, hsla(197, 62%, 11%, 0) 50px, hsla(197, 62%, 11%, 0) 60px,                
       hsla(5, 53%, 63%, .5) 60px, hsla(5, 53%, 63%, .5) 70px, hsla(35, 91%, 65%, .5) 70px, hsla(35, 91%, 65%, .5) 80px,
@@ -176,8 +150,8 @@ body {
 
 .message {
 	position: relative;
+
 	-webkit-opacity: .9;
-	-khtml-opacity: .9;
 	-moz-opacity: .9;
 	-ms-opacity: .9;
 	-o-opacity: .9;
@@ -200,8 +174,8 @@ body {
 
 .login h1 a:hover {
 	position: relative;
+
 	-webkit-transform: scale(1.05, 1.05);
-	-khtml-transform: scale(1.05, 1.05);
 	-moz-transform: scale(1.05, 1.05);
 	-ms-transform: scale(1.05, 1.05);
 	-o-transform: scale(1.05, 1.05);
@@ -213,38 +187,37 @@ body {
 	background: #EFEFEF;
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#EFEFEF), color-stop(100%,#EFEFC3));
 	background: -webkit-linear-gradient(top, #EFEFEF 0%, #EFEFC3 100%);
-	background: -khtml-linear-gradient(top, #EFEFEF 0%, #EFEFC3 100%);
 	background: -moz-linear-gradient(top, #EFEFEF 0%, #EFEFC3 100%);
 	background: -ms-linear-gradient(top, #EFEFEF 0%, #EFEFC3 100%);
 	background: -o-linear-gradient(top, #EFEFEF 0%, #EFEFC3 100%);
 	background: linear-gradient(top, #EFEFEF 0%, #EFEFC3 100%);
 	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr='#EFEFEF', endColorstr='#D3E0E0');
+
 	-webkit-border-radius: 12px;
-	-khtml-border-radius: 12px;
 	-moz-border-radius: 12px;
 	-ms-border-radius: 12px;
 	-o-border-radius: 12px;
 	border-radius: 12px;
+
 	-webkit-border-top-right-radius: 3px;
-	-khtml-border-top-right-radius: 3px;
 	-moz-border-radius-topright: 3px;
 	-ms-border-top-right-radius: 3px;
 	-o-border-top-right-radius: 3px;
 	border-top-right-radius: 3px;
+
 	-webkit-border-bottom-left-radius: 3px;
-	-khtml-border-bottom-left-radius: 3px;
 	-moz-border-radius-bottomleft: 3px;
 	-ms-border-bottom-left-radius: 3px;
 	-o-border-bottom-left-radius: 3px;
 	border-bottom-left-radius: 3px;
+
 	-webkit-box-shadow: 1px 1px 15px -2px #222, inset 0px 0px 0px 1px #DDD;
-	-khtml-box-shadow: 1px 1px 15px -2px #222, inset 0px 0px 0px 1px #DDD;
 	-moz-box-shadow: 1px 1px 15px -2px #222, inset 0px 0px 0px 1px #DDD;
 	-ms-box-shadow: 1px 1px 15px -2px #222, inset 0px 0px 0px 1px #DDD;
 	-o-box-shadow: 1px 1px 15px -2px #222, inset 0px 0px 0px 1px #DDD;
 	box-shadow: 1px 1px 15px -2px #222, inset 0px 0px 0px 1px #DDD;
+
 	-webkit-opacity: .9;
-	-khtml-opacity: .9;
 	-moz-opacity: .9;
 	-ms-opacity: .9;
 	-o-opacity: .9;
@@ -266,14 +239,11 @@ body {
 
 .login #backtoblog:hover {
 	position: relative;
+
 	-webkit-animation-name: shakey;
 	-webkit-animation-timing-function: linear;
 	-webkit-animation-iteration-count: once;
 	-webkit-animation-duration: 300ms;
-	-khtml-animation-name: shakey;
-	-khtml-animation-timing-function: linear;
-	-khtml-animation-iteration-count: once;
-	-khtml-animation-duration: 300ms;
 	-moz-animation-name: shakey;
 	-moz-animation-timing-function: linear;
 	-moz-animation-iteration-count: once;
@@ -297,14 +267,14 @@ body {
 	font-size: 138.5%;
 	border: 1px solid #CCC;
 	padding: 2px 5px;
+
 	-webkit-border-radius: 4px;
-	-khtml-border-radius: 4px;
 	-moz-border-radius: 4px;
 	-ms-border-radius: 4px;
 	-o-border-radius: 4px;
 	border-radius: 4px;
+
 	-webkit-box-shadow: inset 1px 1px 2px 2px rgba(143,143,143,.2);
-	-khtml-box-shadow: inset 1px 1px 2px 2px rgba(143,143,143,.2);
 	-moz-box-shadow: inset 1px 1px 2px 2px rgba(143,143,143,.2);
 	-ms-box-shadow: inset 1px 1px 2px 2px rgba(143,143,143,.2);
 	-o-box-shadow: inset 1px 1px 2px 2px rgba(143,143,143,.2);
@@ -323,20 +293,19 @@ body {
 	background-color: #4ba614;
 	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4ba614), color-stop(100%, #008c00));
 	background-image: -webkit-linear-gradient(top, #4ba614, #008c00);
-	background-image: -khtml-linear-gradient(top, #4ba614, #008c00);
 	background-image: -moz-linear-gradient(top, #4ba614, #008c00);
 	background-image: -ms-linear-gradient(top, #4ba614, #008c00);
 	background-image: -o-linear-gradient(top, #4ba614, #008c00);
 	background-image: linear-gradient(top, #4ba614, #008c00);
 	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr='#4ba614', endColorstr='#008c00');
+
 	-webkit-text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
-	-khtml-text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
 	-moz-text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
 	-ms-text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
 	-o-text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
 	text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
+
 	-webkit-border-radius: 6px;
-	-khtml-border-radius: 6px;
 	-moz-border-radius: 6px;
 	-ms-border-radius: 6px;
 	-o-border-radius: 6px;
@@ -352,14 +321,13 @@ body {
 	background-color: #36780f;
 	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#36780f), color-stop(100%, #005900));
 	background-image: -webkit-linear-gradient(top, #36780f, #005900);
-	background-image: -khtml-linear-gradient(top, #36780f, #005900);
 	background-image: -moz-linear-gradient(top, #36780f, #005900);
 	background-image: -ms-linear-gradient(top, #36780f, #005900);
 	background-image: -o-linear-gradient(top, #36780f, #005900);
 	background-image: linear-gradient(top, #36780f, #005900);
 	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr='#36780f', endColorstr='#005900');
+
 	-webkit-transition-duration: .2s !important;
-	-khtml-transition-duration: .2s !important;
 	-moz-transition-duration: .2s !important;
 	-ms-transition-duration: .2s !important;
 	-o-transition-duration: .2s !important;
@@ -368,16 +336,12 @@ body {
 
 .login form input:hover {
 	position: relative;
+
 	-webkit-animation-name: glow;
 	-webkit-animation-timing-function: ease-in;
 	-webkit-animation-iteration-count: infinite;
 	-webkit-animation-direction: alternate;
 	-webkit-animation-duration: 500ms;
-	-khtml-animation-name: glow;
-	-khtml-animation-timing-function: ease-in;
-	-khtml-animation-iteration-count: infinite;
-	-khtml-animation-direction: alternate;
-	-khtml-animation-duration: 500ms;
 	-moz-animation-name: glow;
 	-moz-animation-timing-function: ease-in;
 	-moz-animation-iteration-count: infinite;
@@ -403,8 +367,8 @@ body {
 .login form input:focus {
 	position: relative;
 	border: solid 1px #F4A460 !important;
+
 	-webkit-box-shadow: 0 0 5px #F6AC3D, inset 1px 1px 2px 2px rgba(143,143,143,.2) !important;
-	-khtml-box-shadow: 0 0 5px #F6AC3D, inset 1px 1px 2px 2px rgba(143,143,143,.2) !important;
 	-moz-box-shadow: 0 0 5px #F6AC3D, inset 1px 1px 2px 2px rgba(143,143,143,.2) !important;
 	-ms-box-shadow: 0 0 5px #F6AC3D, inset 1px 1px 2px 2px rgba(143,143,143,.2) !important;
 	-o-box-shadow: 0 0 5px #F6AC3D, inset 1px 1px 2px 2px rgba(143,143,143,.2) !important;
