@@ -2,55 +2,67 @@
 /**
  * Additional Shortcodes
  */
-//******************************************************************************
-// Timeliner
-//******************************************************************************
+
+
+/********************************************************************************/
+/* Timeliner */
+/********************************************************************************/
 function sc_timeline( $atts, $content = null ) {
-	extract( shortcode_atts( array(
-			'style' => '',
-	), $atts ) );
+	extract(shortcode_atts(array(
+			'style'	=>	'',
+	), $atts));
+
 	$styledata = '';
 	if ( $style != '' ) {
 		$styledata = ' style="'.$style.'"';
 	}
+
+	$content = do_shortcode( $content );
 	$ret  = '';
 	$ret .= '<div id="timelineContainer"'.$styledata.'>';
 	$ret .= '<div class="timelineToggle">';
 	$ret .= '<small><a class="expandAll expandAllclosed"></a></small>';
 	$ret .= '</div>';
-	$ret .= '<br class="clear" />'.do_shortcode( $content ).'<br class="clear" />';
+	$ret .= '<br class="clear" />'.$content.'<br class="clear" />';
 	$ret .= '</div>';
 	return $ret;
 }
+
 add_shortcode( 'timeline', 'sc_timeline' );
 
 
-function sc_timelineGroup( $atts, $content = null ) {
-	extract( shortcode_atts( array(
-			'title' => '',
-			'tag' => 'h2',
-	), $atts ) );
+function sc_timeline_group( $atts, $content = null ) {
+	extract(shortcode_atts(array(
+			'title'	=>	'',
+			'tag'	=>	'h2',
+	), $atts));
+
+	$content = do_shortcode( $content );
 	$ret  = '';
 	$ret .= '<div class="timelineMajor">';
 	$ret .= '<'.$tag.' class="timelineMajorMarker"><span><a>'.$title.'</a></span></'.$tag.'>';
-	$ret .= do_shortcode( $content );
+	$ret .= $content;
 	$ret .= '</div>';
 	return $ret;
 }
-add_shortcode( 'timelineGroup', 'sc_timelineGroup' );
+
+add_shortcode( 'timeline_group', 'sc_timeline_group' );
 
 
-function sc_timelineEvent( $atts, $content = null ) {
-	extract( shortcode_atts( array(
-			'id' => '',
-			'title' => '',
-			'event' => '',
-			'tag' => '',
-	), $atts ) );
+function sc_timeline_event( $atts, $content = null ) {
+	extract(shortcode_atts(array(
+			'id'	=>	'',
+			'title'	=>	'',
+			'event'	=>	'',
+			'tag'	=>	'',
+	), $atts));
+
 	$eventTag = '';
 	if ( $tag != '' ) {
 		$eventTag = '<'.$tag.'>'.$event.'</'.$tag.'>';
 	}
+
+	$content = do_shortcode( $content );
 	$ret  = '';
 	$ret .= '<dl class="timelineMinor">';
 	$ret .= '<dt id="'.$id.'">';
@@ -59,20 +71,22 @@ function sc_timelineEvent( $atts, $content = null ) {
 	$ret .= '</dt>';
 	$ret .= '<dd id="'.$id.'EX" class="timelineEvent" style="display: none;">';
 	$ret .= $eventTag;
-	$ret .= do_shortcode( $content );
+	$ret .= $content;
 	$ret .= '</dd>';
 	$ret .= '</dl>';
 	return $ret;
 }
-add_shortcode( 'timelineEvent', 'sc_timelineEvent' );
+
+add_shortcode( 'timeline_event', 'sc_timeline_event' );
 
 
-function sc_timelineEventSingle( $atts, $content = null ) {
-	extract( shortcode_atts( array(
-			'event' => '',
-			'tag' => 'h3',
-			'desc' => '',
-	), $atts ) );
+function sc_timeline_event_single( $atts, $content = null ) {
+	extract(shortcode_atts(array(
+			'event'	=>	'',
+			'tag'	=>	'h3',
+			'desc'	=>	'',
+	), $atts));
+
 	$eventTag = '';
 	if ( $tag != '' ) {
 		$eventTag = '<'.$tag.'>'.$event.'</'.$tag.'>';
@@ -81,44 +95,52 @@ function sc_timelineEventSingle( $atts, $content = null ) {
 	if ( $desc != '' ) {
 		$descTag = '<p class="desc">'.$desc.'</p>';
 	}
+
+	$content = do_shortcode( $content );
 	$ret  = '';
 	$ret .= '<dl class="timelineMinor">';
 	$ret .= '<dd>';
 	$ret .= $eventTag;
-	$ret .= do_shortcode( $content );
+	$ret .= $content;
 	$ret .= $descTag;
 	$ret .= '</dd>';
 	$ret .= '</dl>';
 	return $ret;
 }
-add_shortcode( 'timelineEventSingle', 'sc_timelineEventSingle' );
+
+add_shortcode( 'timeline_event_single', 'sc_timeline_event_single' );
 
 
-function sc_timelineMedia( $atts, $content = null ) {
-	extract( shortcode_atts( array(
-			'style' => '',
-	), $atts ) );
+function sc_timeline_media( $atts, $content = null ) {
+	extract(shortcode_atts( array(
+			'style'	=>	'',
+	), $atts));
+
 	$styledata = '';
 	if ( $style != '' ) {
 		$styledata = ' style="'.$style.'"';
 	}
+
+	$content = do_shortcode( $content );
 	$ret  = '';
 	$ret .= '<div class="media"'.$styledata.'>';
-	$ret .= do_shortcode( $content );
+	$ret .= $content;
 	$ret .= '</div>';
 	return $ret;
 }
-add_shortcode( 'timelineMedia', 'sc_timelineMedia' );
+
+add_shortcode( 'timeline_media', 'sc_timeline_media' );
 
 
-function sc_timelineGallery( $atts ) {
-	extract( shortcode_atts( array(
-			'url' => '',
-			'title' => '',
-			'cred' => '',
-			'desc' => '',
-			'rel' => 'shadowbox[album]',
-	), $atts ) );
+function sc_timeline_gallery( $atts ) {
+	extract(shortcode_atts(array(
+			'url'	=>	'',
+			'title'	=>	'',
+			'cred'	=>	'',
+			'desc'	=>	'',
+			'rel'	=>	'shadowbox[timeline]',
+	), $atts));
+
 	$ret = '';
 	if ( $url != '' ) {
 		$credTag = '';
@@ -129,7 +151,8 @@ function sc_timelineGallery( $atts ) {
 		if ( $desc != '' ) {
 			$descTag = '<p class="desc">'.$desc.'</p>';
 		}
-		$ret  = '';
+
+		$ret = '';
 		$ret .= '<div class="gallery default">';
 		$ret .= '<div class="gallery-icon">';
 		$ret .= '<a href="'.$url.'" rel="'.$rel.'">';
@@ -142,14 +165,16 @@ function sc_timelineGallery( $atts ) {
 	}
 	return $ret;
 }
-add_shortcode( 'timelineGallery', 'sc_timelineGallery' );
+
+add_shortcode( 'timeline_gallery', 'sc_timeline_gallery' );
 
 
-function sc_timelineEmbed( $atts, $content = null ) {
-	extract( shortcode_atts( array(
-			'cred' => '',
-			'desc' => '',
-	), $atts ) );
+function sc_timeline_embed( $atts, $content = null ) {
+	extract(shortcode_atts(array(
+			'cred'	=>	'',
+			'desc'	=>	'',
+	), $atts));
+
 	$credTag = '';
 	if ( $cred != '' ) {
 		$credTag = '<p class="cred"><small>'.$cred.'</small></p>';
@@ -158,22 +183,26 @@ function sc_timelineEmbed( $atts, $content = null ) {
 	if ( $desc != '' ) {
 		$descTag = '<p class="desc">'.$desc.'</p>';
 	}
+
+	$content = do_shortcode( $content );
 	$ret  = '';
 	$ret .= '<div>';
-	$ret .= do_shortcode( $content );
+	$ret .= $content;
 	$ret .= '</div>';
 	$ret .= $credTag;
 	$ret .= $descTag;
 	return $ret;
 }
-add_shortcode( 'timelineEmbed', 'sc_timelineEmbed' );
+
+add_shortcode( 'timeline_embed', 'sc_timeline_embed' );
 
 
-function sc_timelineInfoList( $atts ) {
-	extract( shortcode_atts( array(
-			'list' => '',
-			'delim' => '::::',
-	), $atts ) );
+function sc_timeline_infolist( $atts ) {
+	extract(shortcode_atts(array(
+			'list'	=>	'',
+			'delim'	=>	'::::',
+	), $atts));
+
 	$liTag = '';
 	if ( $list != '' ) {
 		$array = explode( $delim, $list );
@@ -182,136 +211,113 @@ function sc_timelineInfoList( $atts ) {
 			$liTag .= '<li>'.$array[$i].'</li>';
 		}
 	}
+
 	$ret  = '';
 	$ret .= '<ul class="moreInfo">';
 	$ret .= $liTag;
 	$ret .= '</ul>';
 	return $ret;
 }
-add_shortcode( 'timelineInfoList', 'sc_timelineInfoList' );
+
+add_shortcode( 'timeline_infolist', 'sc_timeline_infolist' );
 
 
-//******************************************************************************
-// Cloud with content
-//******************************************************************************
+/********************************************************************************/
+/* Cloud with content */
+/********************************************************************************/
 function sc_moving_cloud( $atts, $content = null ) {
-	extract( shortcode_atts( array(
-			'style' => 'height:auto',
-	), $atts ) );
+	extract(shortcode_atts(array(
+			'style'	=>	'height:auto',
+	), $atts));
+
 	$styledata = '';
 	if ( $style != '' ) {
 		$styledata = ' style="'.$style.'"';
 	}
+
+	$content = do_shortcode( $content );
 	$ret  = '';
 	$ret .= '<div class="moving-cloud"'.$styledata.'>';
 		$ret .= '<div id="moving-cloud-canvas">';
-			$ret .= '<div id="moving-clouds">';
-				$ret .= '<div class="moving-cloud1"><span class="moving-shadow1"></span></div>';
-				$ret .= '<div class="moving-cloud2"><span class="moving-shadow2"></span></div>';
-				$ret .= '<div class="moving-cloud3"><span class="moving-shadow3"></span></div>';
+		for ( $i = 1; $i <= 2; $i++ ) {
+			$ret .= '<div id="moving-clouds'.$i.'">';
+			for ( $j = 1; $j <= 3; $j++ ) {
+				$ret .= '<div class="moving-cloud'.$j.'">';
+				$ret .= '<span class="moving-shadow'.$j.'"></span>';
+				$ret .= '</div>';
+			}
 			$ret .= '</div>';
-			$ret .= '<div id="moving-clouds2">';
-				$ret .= '<div class="moving-cloud1"><span class="moving-shadow1"></span></div>';
-				$ret .= '<div class="moving-cloud2"><span class="moving-shadow2"></span></div>';
-				$ret .= '<div class="moving-cloud3"><span class="moving-shadow3"></span></div>';
-			$ret .= '</div>';
+		}
 		$ret .= '</div>';
 		$ret .= '<div id="moving-cloud-content">'.do_shortcode( $content ).'</div>';
 	$ret .= '</div>';
 	return $ret;
 }
+
 add_shortcode( 'moving_cloud', 'sc_moving_cloud' );
 
 
-//******************************************************************************
-// WikiUp Tooltip
-//******************************************************************************
-function sc_wikiup( $atts, $content = null ) {
-	extract( shortcode_atts( array(
-			'id' => '',
-			'style' => '',
-			'wiki' => '',
-			'lang' => 'ja',
-	), $atts ) );
-	// idを追加
-	$dataid = '';
-	if ( $id != '' ) {
-		$dataid = ' id="'.$id.'"';
-	}
-	// styleを追加
-	$datastyle = '';
-	if ( $style != '' ) {
-		$datastyle = ' style="'.$style.'"';
-	}
-	$ret  = '';
-	$ret .= '<data';
-	$ret .= $dataid;
-	$ret .= $datastyle;
-	$ret .= ' data-wiki="'.$wiki.'"';
-	$ret .= ' data-lang="'.$lang.'">';
-	$ret .= do_shortcode( $content );
-	$ret .= '</data>';
-	return $ret;
-}
-add_shortcode( 'wikiup', 'sc_wikiup' );
-
-
-//******************************************************************************
-// jqFloating Clouds
-//******************************************************************************
+/********************************************************************************/
+/* jqFloating Clouds */
+/********************************************************************************/
 function sc_jqfloat_sky( $atts, $content = null ) {
+	$content = do_shortcode( $content );
 	$ret  = '';
 	$ret .= '<div id="jqfloat-sky">';
-	$ret .= do_shortcode( $content );
+	$ret .= $content;
 	$ret .= '</div>';
 	return $ret;
 }
+
 add_shortcode( 'jqfloat_sky', 'sc_jqfloat_sky' );
 
 
 function sc_jqfloat_holder( $atts, $content = null ) {
+	$content = do_shortcode( $content );
 	$ret  = '';
 	$ret .= '<div id="jqfloat-holder" style="padding: 0;">';
-	$ret .= do_shortcode( $content );
+	$ret .= $content;
 	$ret .= '</div>';
 	return $ret;
 }
+
 add_shortcode( 'jqfloat_holder', 'sc_jqfloat_holder' );
 
 
 function sc_jqfloat_clouds( $atts ) {
 	$ret  = '';
-	$ret .= '<div id="jqfloat-cloud1" class="jqfloat-cloud"></div>';
-	$ret .= '<div id="jqfloat-cloud2" class="jqfloat-cloud"></div>';
-	$ret .= '<div id="jqfloat-cloud3" class="jqfloat-cloud"></div>';
-	$ret .= '<div id="jqfloat-cloud4" class="jqfloat-cloud"></div>';
+	for ( $i = 1; $i <= 4; $i++ ) {
+		$ret .= '<div id="jqfloat-cloud'.$i.'" class="jqfloat-cloud"></div>';
+	}
 	$ret .= '<div id="jqfloat-sun"></div>';
 	return $ret;
 }
+
 add_shortcode( 'jqfloat_clouds', 'sc_jqfloat_clouds' );
 
 
-//******************************************************************************
-// Dancing Erika Style
-//******************************************************************************
+/********************************************************************************/
+/* Dancing Erika Style */
+/********************************************************************************/
 function sc_erika_style( $atts ) {
-	extract( shortcode_atts( array(
-			'background' => 'rgba(192,208,240,.6)',
-			'button' => 'false',
-			'cap' => 'ダンスやめる？',
-			'id' => 'erika-style',
-	), $atts ) );
-	$trigger = '';
+	extract(shortcode_atts(array(
+			'background'	=>	'',
+			'button'		=>	'true',
+			'id'			=>	'erika-style',
+	), $atts));
+
+	$playbutton = '';
 	if ( $button == 'true' ) {
-		$trigger = '<a class="erika-trigger" href="#'.$id.'">'.$cap.'</a><div>　</div>';
+		$playbutton = '<a type="button" class="button player-pause" id="player-button" href="#'.$id.'"></a>';
 	}
 	$datastyle = '';
 	if ( $background != '' ) {
 		$datastyle = ' style="background:'.$background.';"';
 	}
+
 	$ret  = '';
 	$ret .= '<div id="erika-style"'.$datastyle.'>';
-		$ret .= '<div id="erika-csscanvas">';
+		$ret .= '<div id="erika-canvas">';
 			$ret .= '<div id="erika-corebody">';
 				$ret .= '<div id="erika-waist">';
 					$ret .= '<div id="erika-waist_r1"></div>';
@@ -476,7 +482,7 @@ function sc_erika_style( $atts ) {
 				$ret .= '</div>';
 			$ret .= '</div>';
 		$ret .= '</div>';
-		$ret .= $trigger;
+		$ret .= $playbutton;
 	$ret .= '</div>';
 	return $ret;
 }
