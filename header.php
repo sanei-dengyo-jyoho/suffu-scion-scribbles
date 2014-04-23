@@ -33,9 +33,6 @@ if (function_exists('icl_t')) {
 
 <?php
 	suffusion_document_header();
-	if (is_singular()) {
-		wp_enqueue_script('comment-reply');
-	}
 ?>
 	<!--[if lt IE 9]>
 	<script src="<?php echo get_template_directory_uri(); ?>/scripts/html5.js" type="text/javascript"></script>
@@ -48,19 +45,6 @@ if (function_exists('icl_t')) {
 
 	wp_head();
 ?>
-
-<?php if ( is_404() ) { ?>
-	<script type="text/javascript">
-		jQuery.noConflict();
-		jQuery(document).ready(function() {
-			jQuery(".flat-icon").flatshadow({
-				fade: true,
-				boxShadow: "#d7cfb9"
-			});
-		});
-	</script>
-<?php } ?>
-
 </head>
 
 <body <?php body_class(); ?>>
